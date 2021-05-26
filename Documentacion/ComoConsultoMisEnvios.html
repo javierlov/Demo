@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Documentcion v1.0</title>
+
+
+<link href="bootstrap.min.css" rel="stylesheet"
+  crossorigin="anonymous">
+
+
+<!-- Favicons
+<link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
+ -->
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-config" content="browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+  <!-- Custom styles for this template
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+  -->
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <div class="container">
+
+    <main role="main" class="container">
+      <div class="jumbotron">
+        <h1>Como Consulto Mis Envios</h1>
+      </div>
+    </main>
+
+    <div class="section">
+      <div class="blog-post">
+
+        <h2 class="blog-post-title">Para consultar los mails enviados</h2>
+        <p>Estos estan registrados en tablas de la base de datos del sistema
+            en el header de la comunicacion pasar el token en la clave Authorization aca va
+        </p><p><i> "Bearer .....token...."
+            del token se obtienen los datos del cliente empresa que esta consultando
+        </i></p>
+        <br>
+
+        <p>Ejemplo </p>
+
+        <blockquote>
+          <p>GET >>> https://apicampanias.cpymes.com.ar/campaniamail/mismails</p>
+        </blockquote>
+
+        <br>
+        <p>Ejemplo codigo php curl</p>
+        <pre>
+          $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://apicampanias.cpymes.com.ar/seguridad/loginclave/am9zZQ/20531',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+              CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA4Mzg4MTIsImlkdXN1YXJpbyI6IjEiLCJ1c2VybmFtZSI6ImFkbWluIiwiaWRlbXByZXNhIjoiMSIsImVtcHJlc2Fub21icmUiOiJMYXN0ZW5pYSBQZXJpdGFqZSBVbmlkYWRlcyBMUFUiLCJtYWlsIjoiaW5mb0BsYXN0ZW5pYXNvZnR3YXJlLmNvbS5hciIsImV4cCI6bnVsbCwiZXhwaXJvIjoxNjIxMDExNjEyfQ.ba2o6dR5An1_6uu8pxwqKiMmj6MhNRs2QRHeenNEuCM',
+                'Cookie: PHPSESSID=57bab1237f4e9abe6c697051beb9abf1'
+              ),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+
+        </pre>
+
+      </div>
+    </div>
+
+      <a class="btn btn-lg btn-primary" href="index.html" role="button">Volver</a>
+
+</div>
+
+</body></html>
